@@ -51,6 +51,23 @@ if ("IntersectionObserver" in window) {
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
 
+async function copyText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+}
+
 filterButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const filter = button.dataset.filter;
@@ -71,7 +88,7 @@ document.querySelectorAll(".copy-email").forEach((button) => {
     const originalText = button.textContent;
 
     try {
-      await navigator.clipboard.writeText(info);
+      await copyText(info);
       button.textContent = "Info Copied";
     } catch {
       button.textContent = info;
@@ -80,5 +97,25 @@ document.querySelectorAll(".copy-email").forEach((button) => {
     window.setTimeout(() => {
       button.textContent = originalText;
     }, 1800);
+  });
+});
+
+document.querySelectorAll(".discord-order").forEach((link) => {
+  link.addEventListener("click", async () => {
+    const message = link.dataset.message;
+    if (!message) return;
+
+    try {
+      await copyText(message);
+      if (link.classList.contains("btn")) {
+        const originalText = link.textContent;
+        link.textContent = "Pesan Dicopy";
+        window.setTimeout(() => {
+          link.textContent = originalText;
+        }, 1600);
+      }
+    } catch {
+      // Discord still opens; the user can type the message manually if clipboard is blocked.
+    }
   });
 });
