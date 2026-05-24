@@ -34,14 +34,17 @@ Fokus layanan SAMP: harian, mingguan, dan bulanan. Bot JS tersedia sebagai layan
 - Paket mingguan: Rp 300K / minggu
 - Paket bulanan: Rp 500K / bulan
 - Bot JS: mulai Rp 20K sampai Rp 50K, tergantung fitur
+- Rename server: mulai Rp 10K, maksimal rename 2 kali
+- Memperbaiki backtrace gamemode hingga bersih: Rp 20K
+- Memperbaiki Bot JS: mulai Rp 5K
 
 ## Aturan Pengerjaan
 
 - Jam operasional: Senin sampai Jumat, 10.00-22.00 WIB.
 - Sabtu dan Minggu libur.
 - Paket harian dihitung per hari kerja aktif.
-- Paket mingguan maksimal 10 fitur, fix bug, atau update yang jelas.
-- Paket bulanan maksimal 10 fitur, fix bug, atau update yang jelas.
+- Paket mingguan maksimal 10 fitur, fix bug, atau update yang jelas per hari kerja.
+- Paket bulanan maksimal 10 fitur, fix bug, atau update yang jelas per hari kerja.
 - Scope wajib jelas sebelum pengerjaan dimulai.
 
 Nominal bisa diganti langsung di `projects.html`.
